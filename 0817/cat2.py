@@ -9,6 +9,8 @@ button = tkinter.Button(text = "진단하기", font = ("System", 32))
 button.place(x = 400, y = 480)
 text = tkinter.Text(width = 40 , height = 5, font = ("System", 16))
 text.place(x = 320, y = 30)
+bVar = [None] * 7
+cbtn = [None] * 7
 ITEM = [
     "높은 곳이 좋다.",
     "공을 보면 굴리고 싶어진다.",
@@ -18,10 +20,10 @@ ITEM = [
     "생선 뼈를 발라 먹고 싶다.",
     "밤, 기운이 난다."
 ]
-bVar = tkinter.BooleanVar()
-bVar.set(False)
-cbtn = tkinter.Checkbutton(text = ITEM[0], font = ("System", 12),
-                           variable = bVar)
-cbtn.place(x = 400, y = 160)
+for i in range(7):
+    bVar[i] = tkinter.BooleanVar()
+    bVar[i].set(False)
+    cbtn[i] = tkinter.Checkbutton(text = ITEM[i], font = ("System", 12),variable = bVar)
+    cbtn[i].place(x = 400, y = 160 + 40 * i)
 
 root.mainloop()
